@@ -1,11 +1,15 @@
 # volume
 ### Volume control and info script written in bash, written for PulseAudio.
 
+#### Dependencies
+
+pamixer and pactl (so systemd, basically)
+
 #### Instructions:
 
-0) `cd clone_location`
-1) install pamixer from your distro package manager. also needs pactl.
-2) `chmod +x volume; /usr/bin/install volume ~/home/$USER/.local/bin`
+0) `git clone https://github.com/shantaram3013/volume`
+1) `cd volume`
+2) `/usr/bin/install volume ~/.local/bin` (or other binary directory of your choice)
 
 Commands:
 
