@@ -10,28 +10,28 @@ get_active_sink() {
 get_vol_string() {
     local volume=$(pamixer --sink $(get_active_sink) --get-volume)'%'
 
-    if [ $(pamixer --sink $(get_active_sink) --get-mute) == 'true' ]; then
+    if [[ $(pamixer --sink $(get_active_sink) --get-mute) == 'true' ]]; then
         echo '\uf6a9 '$volume
     else
         echo '\uf028 '$volume
     fi
 }
 
-if [ -z $1 ]; then
+if [[ -z $1 ]]; then
     get_vol_string;
-elif [ $1 == 'up' ]; then
+elif [[ $1 == 'up' ]]; then
     echo 'volup';
     pamixer --sink $(get_active_sink) -i 5 --allow-boost
-elif [ $1 == 'down' ]; then
+elif [[ $1 == 'down' ]]; then
     echo 'voldown';
     pamixer --sink $(get_active_sink) -d 5 --allow-boost
-elif [ $1 == 'mute' ]; then
+elif [[ $1 == 'mute' ]]; then
     echo 'mute toggled' ;
     pamixer --sink $(get_active_sink) --toggle-mute
-elif [ $1 == 'muteon' ]; then
+elif [[ $1 == 'muteon' ]]; then
     echo 'muting' ;
     pamixer --sink $(get_active_sink) -m
-elif [ $1 == 'muteoff' ]; then
+elif [[ $1 == 'muteoff' ]]; then
     echo 'unmuting' ;
     pamixer --sink $(get_active_sink) -u
 fi
