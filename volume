@@ -2,7 +2,7 @@
 get_active_sink() {
   pactl list sinks | awk '
     /^Sink #/ { last = substr($2, 2) }
-    $1 == "State:" && $2 == "RUNNING" { print last; exit }
+    $1 == "State:" && $2 == "RUNNING" { exit }
     END { print last }
   '
 }
